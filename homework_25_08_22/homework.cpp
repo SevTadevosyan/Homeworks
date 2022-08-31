@@ -63,7 +63,6 @@ void printNumbersFromZeroToHundred() {
                 std::cout << i << " ";
         }
         std::cout << std::endl;
-
 }
 
 // 5.Print even numbers from zero to hundred
@@ -113,14 +112,11 @@ int pow(int num, int degree) {
 
 void printNumbersDigits() {
         int num, temp, divider;
-        int count = 0;
+        int count = 1;
         std::cout << "Enter the number... ";
         std::cin >> num;
         temp = num;
-        if (num == 0) {
-                count = 1;
-        }
-        while ( temp >= 1 || temp <= -1) {
+        while ( temp > 1 || temp < -1) {
                 ++count;
                 temp /= 10;
         }
@@ -143,9 +139,7 @@ void printTheSumOfNumbersDigits() {
         int num, sum = 0;
         std::cout << "Enter the number... ";
         std::cin >> num;
-        if (num < 0) {
-            num *= -1;
-        }
+        num = num > 0 ? num : -num; 
         while (num >= 1) {
                 sum += num % 10;
                 num /= 10;
@@ -183,56 +177,22 @@ void printTheResultOfCalculator() {
 // 11. Draw house using symbols
 
 void drawHouse() {
-        std::cout << "      /\\      \n" 
-                     "     /  \\ |   \n"
-                     "    /    \\|   \n" 
-                     "   /      \\   \n" 
-                     "  /_______ \\  \n" 
-                     "  |        |   \n" 
-                     "  | []  [] |   \n" 
-                     "  |    _   |   \n" 
-                     "  |   |*|  |   \n" 
-    "  |___|_|__|   \n";
-}
-
-
-void drawHouseWithLoop() {
-    int n = 10;
-    bool head, foot;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n * 2; ++j) {
-            
-            head = i <=  n / 2 - 1 && (j == n - i || j == n + i);
-            foot = (i == n / 2  && j % 2 != 0) && j >= n / 2 && j <= n + n / 2;
-            
-            if (i <= n / 2 ) {
-                if (head || foot) {
-                    std::cout << '*';
-                } else {
-                    std::cout << " ";
+        int n;
+        std::cin >> n;
+        bool head, foot, wall;
+        for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n * 2; ++j) {
+                        head = i < n / 2 && (j == n - i || j == n + i);
+                        foot = (i == n / 2 || i == n - 1) && (j % 2 == 0 && (j >= n / 2 && j <= n + n / 2));
+                        wall = (i > n / 2 && i < n - 1) && (j == n / 2 || j == n + n / 2);
+                        if (head || foot || wall) {
+                                std::cout << "*";
+                        } else {
+                                std::cout << " ";
+                        }
                 }
-            } else {
-                if (i < n - 1) {
-                    if (j == n / 2 || j == n + n / 2) {
-                        std::cout << '*';
-                    } else {
-                        std::cout << ' ';
-                    }
-                } else if (i == n - 1) {
-                    
-                    foot = j % 2 != 0 && j > n / 2 - 1 && j < n + n / 2 + 1;
-                    
-                    if (foot) {
-                        std::cout << '*';
-                        continue;
-                    } else {
-                        std::cout << ' ';
-                    }
-                }
-            }
+                std::cout << std::endl;
         }
-        std::cout << std::endl;
-    }
 }
 
 
@@ -254,8 +214,6 @@ void drawTriangle() {
     }
 }
 
-
-
 // 13. Function that return three arguments' multiplication.
 
 double threeNumbersMul(double first, double second, double third) {
@@ -276,8 +234,8 @@ int main() {
     // printNumbersDigits();
     // printTheSumOfNumbersDigits();
     // printTheResultOfCalculator();
-    // drawHouse();
-    // drawTriangle();
+     //drawHouse();
+     drawTriangle();
     // double first, second, third;
     // std::cout << "Enter three numbers separated by spaces...";
     // std::cin >> first >> second >> third;
