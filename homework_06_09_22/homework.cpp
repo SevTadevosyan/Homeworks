@@ -44,17 +44,21 @@ int main() {
         //std::cout << binarySearchRecursive(arr, target, begin, end) << std::endl;
 
         //2.
-        //char* str = new char[13] {"Hello"};
-        //std::cout << _strlen(str) << std::endl;
+        /*
+        char* str = new char[100];
+        std::cin.getline(str, 100);
+        std::cout << _strlen(str) << std::endl;
         //char ch;
         //std::cin >> ch;
         //_strset(str, ch);
+
         //3.
         //reverse(str);
+
         //4.
         //to_upper_case(str);
+
         //5.
-        
         int op1;
         int op2;
         char ins;
@@ -62,7 +66,6 @@ int main() {
         std::cin >> op1 >> op2;
         std::cout << "Enter instruction character: ";
         std::cin >> ins;
-
         std::map<char, int> functionMap;
         //int (*add)(int, int) = _add;
         //int (*sub)(int, int) = _sub;
@@ -71,10 +74,13 @@ int main() {
         functionMap['*'] = _mul(op1,op2);
         functionMap['/'] = _div(op1,op2);
         std::cout << functionMap[ins];
-        
+        */
+
         //6.
-        //char* s1 = new char[12] {"Hello, "};
-        //char* s2 = new char[7] {"World!"};
+        //char* s1 = new char[100];
+        //std::cin.getline(s1); 
+        //char* s2 = new char[100];
+        //std::cin.getline(s2);
         //std::cout << s1 << std::endl;
         //std::cout << s2 << std::endl;
         //s1 = _strcat(s1, s2);
